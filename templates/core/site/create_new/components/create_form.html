@@ -1,0 +1,93 @@
+{% load static %}
+{% load sass_tags %}
+<form class="theme-form" method="POST">
+  {% csrf_token %}
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header pb-0">
+      <h5>General Information</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Site EA</label>
+              <input name="site_ea" class="form-control" type="number" placeholder="Site EA" required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Smart Site ID</label>
+              <input name="smart_site_id" class="form-control" type="text" placeholder="Smart Site ID" required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Name</label>
+              <input name="name" class="form-control" type="text" placeholder="Name" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Address</label>
+              <input name="address" class="form-control" type="text" placeholder="Address" required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Municipality</label>
+              <input name="municipality" class="form-control" type="text" placeholder="Municipality" required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Province</label>
+              <input name="province" class="form-control" type="text" placeholder="Province" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Classification</label>
+              <input name="classification" class="form-control" type="text" placeholder="Classification" required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Location</label>
+              <input name="location" class="form-control" type="text" placeholder="Location" required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Province</label>
+              <input name="province" class="form-control" type="text" placeholder="Province" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Longitude</label>
+              <input name="longitude" class="form-control" type="number" step=".01" placeholder="Longitude" required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="mb-3">
+              <label>Latitude</label>
+              <input name="latitude" class="form-control" type="number" step=".01" placeholder="Latitude" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="text-end"><button type="submit" class="btn btn-success me-3">Save</button></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</form>

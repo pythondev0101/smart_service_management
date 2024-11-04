@@ -1,0 +1,35 @@
+{% load static %}
+{% load sass_tags %}
+
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-body">
+      <form id="frm_project_create" class="theme-form" method="POST">
+        {% csrf_token %}
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="username">Username</label>
+          <div class="col-sm-9">
+            <input class="form-control" name="username" type="text" placeholder="Username" value="{{user.username}}" required>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="fname">First Name</label>
+          <div class="col-sm-9">
+            <input class="form-control" name="fname" type="text" placeholder="First Name" value="{{user.first_name}}" required>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="lname">Last Name</label>
+          <div class="col-sm-9">
+            <input class="form-control" name="lname" type="text" placeholder="Last Name" value="{{user.last_name}}" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="text-end"><button type="submit" class="btn btn-success me-3">Save</button></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

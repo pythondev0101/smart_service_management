@@ -1,0 +1,47 @@
+{% load static %}
+{% load sass_tags %}
+<div class="container-fluid list-products">
+
+  <div class="row">
+    <div class="col-md-12 project-list">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-6 p-0">
+            <ul class="nav nav-tabs border-tab" id="top-tab" role="tablist">
+              <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-bs-toggle="tab" href="#top-home"
+                  role="tab" aria-controls="top-home" aria-selected="true"><i data-feather="target"></i>All</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 p-0">
+            <div class="form-group mb-0 me-0"></div><a class="btn btn-primary" href="{% url 'export_to_csv' %}"> <i
+                data-feather="upload"> </i>Export to CSV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Individual column searching (text inputs) Starts-->
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="display" id="logs-table">
+              <thead>
+                <tr>
+                  <th>Model Id</th>
+                  <th>Date</th>
+                  <th>Id</th>
+                  <th>Updates</th>
+                  <th>Updated By</th>
+                </tr>
+              </thead>
+            <tbody>
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Individual column searching (text inputs) Ends-->
+  </div>
+</div>

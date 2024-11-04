@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% load static %}
+{% load sass_tags %}
+{% block css %}
+<!-- Plugins css start-->
+<link rel="stylesheet" type="text/css" href="{% sass_src 'assets/scss/vendors/datatables.scss' %}">
+<!-- Plugins css Ends-->
+{% endblock css %}
+{% block content %}
+<div class="page-body">
+  {% include 'layout/breadcrumb-dashboard.html' %}
+  <!-- Container-fluid starts-->
+  <div class="container-fluid default-dash">
+    <div class="row">
+      {% include 'core/dashboard/components/index-top.html' %}
+      {% comment %} {% include 'core/dashboard/components/index-middle.html' %} {% endcomment %}
+      {% comment %} {% include 'core/dashboard/components/index-bottom.html' %} {% endcomment %}
+    </div>
+  </div>
+  <!-- Container-fluid Ends-->
+</div>
+{% endblock content %}
+{% block scriptcontent %}
+<!-- Plugins JS start-->
+<script src="{% static 'assets/js/datatable/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/js/core/dashboard.js' %}"></script>
+<!-- Plugins JS Ends-->
+{% endblock scriptcontent %}

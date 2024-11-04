@@ -1,0 +1,100 @@
+{% load static %}
+{% load sass_tags %}
+
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-body">
+      <form id="frm_project_create" class="theme-form" method="POST">
+        {% csrf_token %}
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="name">Project Name</label>
+          <div class="col-sm-9">
+            <input class="form-control" name="name" type="text" placeholder="Project Name" required>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="operator_fname">Location</label>
+          <div class="col-sm-2">
+            <div class="col-sm-12">
+              <select id="select_province" class="form-control" name="location_province" required>
+                <option value="">Select Province</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="col-sm-12">
+              <select id="select_city" class="form-control" name="location_city" required>
+                <option value="">Select City</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="col-sm-12">
+              <select id="select_barangay" class="form-control" name="location_address2" required>
+                <option value="">Select Barangay</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <input class="form-control" name="location_address1" type="text" placeholder="Street / Unit #">
+          </div>
+          <div class="col-sm-1">
+            <input class="form-control" name="location_zip_code" type="number" placeholder="Zip" required>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="borehole_quantity">Borehole Quantity</label>
+          <div class="col-sm-9">
+            <input class="form-control" name="borehole_quantity" type="number" placeholder="Borehole Quantity" required>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="borehole_depth_meters">Borehole Depth</label>
+          <div class="col-sm-9">
+            <div class="input-group">
+              <input class="form-control" name="borehole_depth_meters" type="number" step=".01" placeholder="Borehole Depth" aria-label="Borehole Depth" required><span class="input-group-text">Meters</span>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="duration_days">Project Duration</label>
+          <div class="col-sm-9">
+            <div class="input-group">
+              <input class="form-control" name="duration_days" type="number" placeholder="Project Duration" aria-label="Project Duration" required><span class="input-group-text">Days</span>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="select_rig_line">Rig Line</label>
+          <div class="col-sm-9">
+            <div class="input-group text-box">
+              <button class="btn btn-primary input-group-text" type="button" data-bs-toggle="modal"
+              data-bs-target=".bd-example-modal-lg">Search</button>
+              {% include 'core/project/create_new/components/search_rig_line_modal.html' %}
+              <div class="col-sm-10">
+                <select name="equipments" disabled id="select_rig_line" class="form-control col-sm-12" multiple="multiple">
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label" for="pe_pm">PE \ PM</label>
+          <div class="col-sm-9">
+            <select class="form-control" name="pe_pm" required>
+              <option value="">Please select...</option>
+              {% for id, value in form.pe_pm.field.choices%}
+                <option value="{{id}}">{{value}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="text-end"><button type="submit" class="btn btn-success me-3">Create</button></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

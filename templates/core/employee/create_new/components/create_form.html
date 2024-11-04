@@ -1,0 +1,50 @@
+{% load static %}
+{% load sass_tags %}
+<form class="theme-form" method="POST">
+  {% csrf_token %}
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header pb-0">
+      <h5>General Information</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Employee No.</label>
+              <input name="employee_no" class="form-control" type="number" placeholder="Employee No." required>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>First Name</label>
+              <input name="fname" class="form-control" type="text" placeholder="First Name" required>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Model</label>
+              <input name="lname" class="form-control" type="text" placeholder="Last Name" required>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Position</label>
+              <select class="form-control" name="position" required>
+                <option value="">Please select...</option>
+                <option value="LEVEL1">Level 1</option>
+                <option value="LEVEL2">Level 2</option>
+                <option value="LEVEL3">Level 3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="text-end"><button type="submit" class="btn btn-success me-3">Save</button></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</form>

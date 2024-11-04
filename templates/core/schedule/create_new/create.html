@@ -1,0 +1,36 @@
+{% extends 'base.html' %}{% load static %}
+{% load sass_tags %}
+{% block css %}
+<!-- Plugins css start-->
+<link rel="stylesheet" type="text/css" href="{% sass_src 'assets/scss/vendors/datatables.scss' %}">
+<link rel="stylesheet" type="text/css" href="{% sass_src 'assets/scss/vendors/datatable-extension.scss' %}">
+<!-- Plugins css Ends-->
+{% endblock css %}
+{% block content %}
+<div class="page-body">
+  {% include 'layout/breadcrumb.html' %}
+  <!-- Container-fluid starts-->
+  <div class="container-fluid">
+    <div class="edit-profile">
+    {% for field, error in form.errors.items %}
+    <div class="alert alert-danger outline alert-dismissible fade show" role="alert">
+        <p>{{field|upper}} {{error.as_text}}</p>
+        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="card-options"><a class="card-options-collapse" href="#" data-bs-toggle="card-collapse"><i
+      class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-bs-toggle="card-remove"><i
+      class="fe fe-x"></i></a></div>
+    {% endfor %}
+      <div class="row">
+        {% include 'core/schedule/create_new/components/create_form.html' %}
+      </div>
+    </div>
+  </div>
+  <!-- Container-fluid Ends-->
+</div>
+{% endblock content %}
+{% block scriptcontent %}
+<!-- Plugins JS start-->
+<script src="{% static 'assets/js/datatable/datatables/jquery.dataTables.min.js' %}"></script>
+<!-- Plugins JS Ends-->
+{% endblock scriptcontent %}

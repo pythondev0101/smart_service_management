@@ -1,0 +1,52 @@
+{% load static %}
+{% load sass_tags %}
+<form class="theme-form" method="POST">
+  {% csrf_token %}
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header pb-0">
+      <h5>General Information</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label" for="employee">Employee</label>
+            <div class="col-sm-9">
+              <select class="form-control" name="employee" required>
+                <option value="">Please select...</option>
+                {% for id, value in form.employee.field.choices%}
+                  <option value="{{id}}">{{value}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label" for="site">Site</label>
+            <div class="col-sm-9">
+              <select class="form-control" name="site" required>
+                <option value="">Please select...</option>
+                {% for id, value in form.site.field.choices%}
+                  <option value="{{id}}">{{value}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label" for="employee">Start Date</label>
+            <div class="col-sm-9">
+              <input name="start_date" class="form-control" type="date" placeholder="Start Date" min="2024-01-01">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="text-end"><button type="submit" class="btn btn-success me-3">Save</button></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</form>

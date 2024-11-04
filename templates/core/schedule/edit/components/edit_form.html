@@ -1,0 +1,257 @@
+{% load static %}
+{% load sass_tags %}
+<form class="theme-form" method="POST">
+  {% csrf_token %}
+
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header pb-0">
+      <h5>General Information</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Line No.</label>
+              <input name="line_no" class="form-control" type="number" placeholder="Line No." value="{{form.instance.line_no}}" required>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Machine ID</label>
+              <input name="machine_id" class="form-control" type="text" placeholder="Machine ID" value="{{form.instance.machine_id}}" required>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Model</label>
+              <input name="model" class="form-control" type="text" placeholder="Model" value="{{form.instance.model}}" required>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Capacity Code</label>
+              <select class="form-control" name="capacity_code" required>
+                <option value="">Please select...</option>
+                <option value="S" {%if form.instance.capacity_code == "S" %}selected{%endif%}>S</option>
+                <option value="M" {%if form.instance.capacity_code == "M" %}selected{%endif%}>M</option>
+                <option value="L" {%if form.instance.capacity_code == "L" %}selected{%endif%}>L</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Year</label>
+              <input name="year" class="form-control" type="number" placeholder="Year" value="{{form.instance.year}}" required>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Tripod</label>
+              <input name="tripod" class="form-control" type="number" placeholder="Tripod" value="{{form.instance.tripod}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Water Pump</label>
+              <input name="water_pump" class="form-control" type="number" placeholder="Water Pump" value="{{form.instance.water_pump}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Toolbox</label>
+              <input name="toolbox" class="form-control" type="number" placeholder="Toolbox" value="{{form.instance.toolbox}}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Pipe Wrench Pair</label>
+              <input name="pipe_wrench_pair" class="form-control" type="number" placeholder="Pipe Wrench Pair" value="{{form.instance.pipe_wrench_pair}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Casing</label>
+              <input name="casing" class="form-control" type="number" placeholder="Casing" value="{{form.instance.casing}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Rod</label>
+              <input name="rod" class="form-control" type="number" placeholder="Rod" value="{{form.instance.rod}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Reamer</label>
+              <input name="reamer" class="form-control" type="number" placeholder="Reamer" value="{{form.instance.reamer}}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Diamond Bit</label>
+              <input name="diamond_bit" class="form-control" type="number" placeholder="Diamond Bit" value="{{form.instance.diamond_bit}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Spt Hammer</label>
+              <input name="spt_hammer" class="form-control" type="number" placeholder="Spt Hammer" value="{{form.instance.spt_hammer}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Spt Sampler</label>
+              <input name="spt_sampler" class="form-control" type="number" placeholder="Spt Sampler" value="{{form.instance.spt_sampler}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Fire Ext</label>
+              <input name="fire_ext" class="form-control" type="number" placeholder="Fire Ext" value="{{form.instance.fire_ext}}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>CM Tank</label>
+              <input name="cm_tank" class="form-control" type="number" placeholder="CM Tank" value="{{form.instance.cm_tank}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>L Tank</label>
+              <input name="l_tank" class="form-control" type="number" placeholder="L Tank" value="{{form.instance.l_tank}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Fuel Tank</label>
+              <input name="fuel_tank" class="form-control" type="number" placeholder="Fuel Tank" value="{{form.instance.fuel_tank}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Maintenance Date</label>
+              <input name="maintenance_date" class="form-control" type="date" placeholder="Maintenance Date" value="{{form.instance.maintenance_date|date:'Y-m-d'}}" min="2024-01-01">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Operator</label>
+              <input name="operator_fname" class="form-control" type="text" placeholder="First Name" value="{{form.instance.operator_fname}}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>&nbsp</label>
+              <input name="operator_lname" class="form-control" type="text" placeholder="Last Name" value="{{form.instance.operator_lname}}">
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header pb-0">
+      <h5>Rig Schedule Information</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Date of Mobilization</label>
+              <input name="mobilization_date" class="form-control" type="date" placeholder="Date of Mobilization" value="{{form.instance.mobilization_date|date:'Y-m-d'}}" min="2024-01-01">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Delivered By</label>
+              <input name="delivered_by_fname" class="form-control" type="text" placeholder="First Name" value="{%if form.instance.delivered_by_fname%}{{form.instance.delivered_by_fname}}{%endif%}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>&nbsp</label>
+              <input name="delivered_by_lname" class="form-control" type="text" placeholder="Last Name" value="{%if form.instance.delivered_by_lname%}{{form.instance.delivered_by_lname}}{%endif%}">
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Date of Demobilization</label>
+              <input name="demobilization_date" class="form-control" type="date" placeholder="Date of Demobilization" value="{{form.instance.demobilization_date|date:'Y-m-d'}}" min="2024-01-01">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>Received By</label>
+              <input name="received_by_fname" class="form-control" type="text" placeholder="First Name" value="{%if form.instance.received_by_fname%}{{form.instance.received_by_fname}}{%endif%}">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="mb-3">
+              <label>&nbsp</label>
+              <input name="received_by_lname" class="form-control" type="text" placeholder="Last Name" value="{%if form.instance.received_by_lname%}{{form.instance.received_by_lname}}{%endif%}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="text-end"><button type="submit" class="btn btn-success me-3">Save</button></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</form>
+<div class="col-sm-12">
+  <div class="card">
+    <div class="card-header pb-0">
+      <h5>Photos</h5>
+    </div>
+    <div class="card-body">
+      <div class="row gallery">
+        {% for photo in form.instance.photos.all %}
+        <figure class="col-xl-3 col-md-4 col-6 xl-33" itemprop="associatedMedia" itemscope=""><a
+            href="{{photo.path.url}}" itemprop="contentUrl"
+            data-size="1600x950"><img class="img-thumbnail" src="{{photo.path.url}}"
+              itemprop="thumbnail" alt="Image description"></a>
+        </figure>
+        {% endfor %}
+      </div>
+
+      <div class="mb-3 row"></div>
+      <div class="row">
+        <form id="frm_upload_photo" action="{% url 'equipment_upload_photo' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input name="equipment" class="form-control" type="hidden" value="{{form.instance.id}}">
+
+        <div class="col">
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Upload Photo</label>
+            <div class="col-sm-5">
+              <input name="path" class="form-control" type="file" accept="image/*">
+            </div>
+            <div class="col-sm-4">
+              <div class="text-end"><button type="submit" class="btn btn-success me-3">Upload</button></div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
